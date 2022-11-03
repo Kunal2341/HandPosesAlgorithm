@@ -12,7 +12,7 @@ def makeFolder(folderName):
         os.mkdir(folderName)
 
 
-folderName = os.path.join(os.path.dirname(os.getcwd()), "random_images_duplicate")
+folderName = os.path.join(os.path.dirname(os.getcwd()), "random_images")
 
 
 print(os.path.exists(folderName))
@@ -22,10 +22,10 @@ IMAGE_FILES = []
 for img in os.listdir(folderName):
     IMAGE_FILES.append(folderName + "/" + img)
 
-resultesFolder = "random_images_results_shortened/"
+resultesFolder = "random_images_results_final/"
 makeFolder(resultesFolder)
 
-#hi
+
 font = cv2.FONT_HERSHEY_SIMPLEX
 fontScale = 1
 color = (255, 0, 0)
@@ -77,33 +77,30 @@ with mp_hands.Hands(
         annotated_image = cv2.flip(annotated_image, 1)
 
         cv2.putText(annotated_image, "(" + str(newxTxt) + "," + str(yTxt) +  ")", (newxTxt, newyTxt), font, fontScale, color, thickness, cv2.LINE_AA)
+        cv2.putText(annotated_image, str(file[-6:]), (0,40), font, fontScale, color, thickness, cv2.LINE_AA)
+        
         cv2.imwrite(resultesFolder + str(idx) + '.png', annotated_image)
 
 
+
+        # For display to user
         windowName = "Image" + str(file)
-
         percentSmall = 0.55
-        
         size = ((int) (annotated_image.shape[1]*percentSmall), (int) (annotated_image.shape[0]*percentSmall))
-
-
         annotated_image = cv2.resize(annotated_image, size)
-
-
         print("")
         print("\t" + file[-6:])
         print("\tSize--- " + str(annotated_image.shape[0]) + ", " + str(annotated_image.shape[1]))
         print("\tFinger--- "+ str(newxTxt) + ", " + str(yTxt))
         print("-"*20)
 
-        cv2.imshow(windowName, annotated_image)
+        #cv2.imshow(windowName, annotated_image)
         
         
 
 
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        print(file[-6:])
+        #cv2.waitKey(0)
+        #cv2.destroyAllWindows()
 
 
         # Draw hand world landmarks.
