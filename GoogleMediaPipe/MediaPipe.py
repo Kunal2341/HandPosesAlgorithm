@@ -25,7 +25,7 @@ for img in os.listdir(folderName):
 resultesFolder = "random_images_results_shortened/"
 makeFolder(resultesFolder)
 
-
+#hi
 font = cv2.FONT_HERSHEY_SIMPLEX
 fontScale = 1
 color = (255, 0, 0)
