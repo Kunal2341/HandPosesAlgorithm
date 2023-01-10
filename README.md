@@ -2,11 +2,11 @@
 
 Running different tests on a sample of a 100 hand images to see which model works the best for our use case.
 
-|Model|Description|
-|-|-|
-|Alphapose|Fails to install alphapose due to some issue with required GPU|
-|Google Media Pipe|Works the best with accuracy and improved speed|
-|MMpose|Runs slow (likely due to no GPU) and accuracy struggles especially with hidden hands|
+|Model|Description|Image Example|
+|-|-|-|
+|Alphapose|Fails to install alphapose due to some issue with required GPU|n/a|
+|Google Media Pipe|Works the best with accuracy and improved speed|![Google Media Pipe Image 9](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/results_allImages_mediapipe/10.png?raw=true)|
+|MMpose|Runs slow (likely due to no GPU) and accuracy struggles especially with hidden hands|![MediaPipe Image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/results_allImages-mmpose/vis_009.jpg?raw=true)|
 
 # Next Steps - augmenting images
 
