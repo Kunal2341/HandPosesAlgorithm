@@ -25,7 +25,7 @@ choosenPhotos = ["001", "025", "082", "062", "017"]
 photosPaths = []
 #Add the 0 image
 
-photosPaths.append(makeTextImage("RANDOM IMAGES ON GOOGLE MEDIA PIPE"))
+#photosPaths.append(makeTextImage("RANDOM IMAGES ON GOOGLE MEDIA PIPE"))
 for imgNumText in choosenPhotos:
     photosPaths.append(makeTextImage("Image " + imgNumText))
 for imgNum in choosenPhotos:
@@ -34,7 +34,7 @@ for imgNum in choosenPhotos:
         photosPaths.append(im)
 
 x,y = photosPaths[0].size
-ncol = 6
+ncol = 5
 nrow = 14
 gridImages = Image.new('RGB',(x * ncol, y * nrow))
 for i in range(len(photosPaths)):

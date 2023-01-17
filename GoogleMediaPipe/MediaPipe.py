@@ -17,17 +17,28 @@ for augment in os.listdir("augmentedImgs"):
     makeFolder(augment + "-mediaPipe")
 
 
-folderName = os.path.join(os.path.dirname(os.getcwd()), "random_images")
 
-print(os.path.exists(folderName))
-print(folderName)
+#folderName = os.path.join(os.path.dirname(os.getcwd()), "random_images")
+#print(os.path.exists(folderName))
+#print(folderName)
 
-IMAGE_FILES = []
-for img in os.listdir(folderName):
-    IMAGE_FILES.append(folderName + "/" + img)
+allImagesPathGrouped = []
+for imgNumber in range(100):
+    eachImgAugments = []
+    for augment in os.listdir("augmentedImgs"):
+        eachImgAugments.append("augmentedImgs/" + augment + "/" + os.listdir("augmentedImgs/" + augment)[imgNumber])
+    allImagesPathGrouped.append(eachImgAugments)
 
-resultesFolder = "random_images_results_final/"
-makeFolder(resultesFolder)
+
+
+#IMAGE_FILES = []
+#for img in os.listdir(folderName):
+#    IMAGE_FILES.append(folderName + "/" + img)
+
+
+
+#resultesFolder = "random_images_results_final/"
+#makeFolder(resultesFolder)
 
 
 font = cv2.FONT_HERSHEY_SIMPLEX
