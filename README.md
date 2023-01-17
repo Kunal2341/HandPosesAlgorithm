@@ -10,6 +10,8 @@ Running different tests on a sample of a 100 hand images to see which model work
 
 # Next Steps - augmenting images
 
+Use `conda activate HandPose`
+
 Check out image `vis_006` for possible mistakes in google media pipe
 
 Change the image using the following adjustments only with **google media pipe**
@@ -17,11 +19,11 @@ Change the image using the following adjustments only with **google media pipe**
  - Brigthen the image --> Done
  - Darken --> Done
  - Flipped image --> Done
- - Contrast
- - Lower resolution 50%
- - Rotate it 45 
- - Rotate it 90
- - Grayscale
+ - Contrast --> Done
+ - Lower resolution 50% --> Done
+ - Rotate it 45 --> Done
+ - Rotate it 90 --> Done
+ - Grayscale --> Done
 
 Test out results by draw each image on top of each other 
 
