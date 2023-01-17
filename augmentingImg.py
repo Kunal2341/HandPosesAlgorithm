@@ -96,7 +96,7 @@ for img in os.listdir(orginal):
     writeTextChange(im_contrast200, img[:-4] + " - Changed Contrast 200")
     im_contrast100.save(mainFolderName + "/" + contrast100 + "/" + img[:-4] + "-" + contrast100 + ".jpg")
     im_contrast200.save(mainFolderName + "/" + contrast200 + "/" + img[:-4] + "-" + contrast200 + ".jpg")
-    im_resolution = im
+    im_resolution = im.copy()
     writeTextChange(im_resolution, img[:-4] + " - Resolution by 50%")
     im_resolution.save(mainFolderName + "/" + resolution50 + "/" + img[:-4] + "-" + resolution50 + ".jpg", quality=50)
     im_rotate45 = im.rotate(45)

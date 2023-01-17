@@ -26,8 +26,8 @@ photosPaths = []
 #Add the 0 image
 
 #photosPaths.append(makeTextImage("RANDOM IMAGES ON GOOGLE MEDIA PIPE"))
-for imgNumText in choosenPhotos:
-    photosPaths.append(makeTextImage("Image " + imgNumText))
+#for imgNumText in choosenPhotos:
+#    photosPaths.append(makeTextImage("Image " + imgNumText))
 for imgNum in choosenPhotos:
     for augment in os.listdir("augmentedImgs"):
         im = Image.open("augmentedImgs/"+ augment + "/" + imgNum + "-" + augment + ".jpg", 'r')
@@ -38,6 +38,8 @@ ncol = 5
 nrow = 14
 gridImages = Image.new('RGB',(x * ncol, y * nrow))
 for i in range(len(photosPaths)):
-    px, py = x * (i % ncol), y * int(i/ncol)
+    px, py = x * int(i/nrow), y * (i%nrow)
+    #px, py = x * (i % ncol), y * int(i/ncol)
     gridImages.paste(photosPaths[i], (px, py))
 gridImages.save("allGridImages.png")
+gridImages.save("allGridImagesStorage.png", quality=45)
