@@ -22,8 +22,8 @@ def makeFolder(folderName):
 """
 
 def makeFolder(folderName):
-    if not os.path.exists("augmentedImgs\\" + folderName):
-        os.mkdir("augmentedImgs\\" + folderName)
+    if not os.path.exists("augmentedImgs/" + folderName):
+        os.mkdir("augmentedImgs/" + folderName)
 
 def change_contrast(img, level):
     factor = (259 * (level + 255)) / (255 * (259 - level))
@@ -61,7 +61,7 @@ makeFolder(grayscaled)
 
 def writeTextChange(image, text):
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", 75)
+    font = ImageFont.truetype("arial.ttf", 75)
     #font = ImageFont.load_default(size=24)
     draw.text((10, 10), text, (255,255,255),font=font)
     return image
@@ -96,9 +96,6 @@ for img in os.listdir(orginal):
     writeTextChange(im_contrast200, img[:-4] + " - Changed Contrast 200")
     im_contrast100.save(mainFolderName + "/" + contrast100 + "/" + img[:-4] + "-" + contrast100 + ".jpg")
     im_contrast200.save(mainFolderName + "/" + contrast200 + "/" + img[:-4] + "-" + contrast200 + ".jpg")
-    im_resolution = im.copy()
-    writeTextChange(im_resolution, img[:-4] + " - Resolution by 50%")
-    im_resolution.save(mainFolderName + "/" + resolution50 + "/" + img[:-4] + "-" + resolution50 + ".jpg", quality=50)
     im_rotate45 = im.rotate(45)
     im_rotate90 = im.rotate(90)
     writeTextChange(im_rotate45, img[:-4] + " - Rotate by 45*")
@@ -107,3 +104,6 @@ for img in os.listdir(orginal):
     im_rotate90.save(mainFolderName + "/" + rotatedImg90 + "/" + img[:-4] + "-" + rotatedImg90 + ".jpg")
     im_grayscale = im.convert('L')
     im_grayscale.save(mainFolderName + "/" + grayscaled + "/" + img[:-4] + "-" + grayscaled + ".jpg")
+    im_resolution = im.copy()
+    writeTextChange(im_resolution, img[:-4] + " - Resolution by 50%")
+    im_resolution.save(mainFolderName + "/" + resolution50 + "/" + img[:-4] + "-" + resolution50 + ".jpg", quality=50)
