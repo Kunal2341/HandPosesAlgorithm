@@ -15,8 +15,8 @@ Check out image `vis_006` for possible mistakes in google media pipe
 Change the image using the following adjustments only with **google media pipe**
 
  - Brigthen the image --> Done
- - Darken
- - Flipped image
+ - Darken --> Done
+ - Flipped image --> Done
  - Contrast
  - Lower resolution 50%
  - Rotate it 45 
