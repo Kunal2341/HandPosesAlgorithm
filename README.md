@@ -10,6 +10,13 @@ Running different tests on a sample of a 100 hand images to see which model work
 
 # Next Steps - augmenting images
 
+## Grid of images 
+
+Below is the grid of images with each on labeled on a set of random images
+
+![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages.png?raw=true)
+
+
 Use `conda activate HandPose`
 
 Check out image `vis_006` for possible mistakes in google media pipe
