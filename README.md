@@ -14,7 +14,7 @@ Check out image `vis_006` for possible mistakes in google media pipe
 
 Change the image using the following adjustments only with **google media pipe**
 
- - Brigthen the image 
+ - Brigthen the image --> Done
  - Darken
  - Flipped image
  - Contrast
