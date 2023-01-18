@@ -48,6 +48,8 @@ def changePoint(augmentType, xP, yP, origin=(1920/2, 1080/2), normalized=False):
             return rotate_point_normlized(xP, yP, 45)
         elif augmentType == "rotatedImg-90":
             return rotate_point_normlized(xP, yP, 90)
+        elif augmentType == "flippedImg":
+            return xP, 1 - yP
 
 
 def z_score_outliers(data, threshold=3):
