@@ -39,7 +39,6 @@ for imgGroup in allImagesPathGrouped:
 
     cleanImgPath = os.path.split(imgGroup[0])[1][0:3] + ".jpg"
     imgEditsAll = cv2.flip(cv2.imread("random_images/" + cleanImgPath), 1)
-    
 
     print("-"*20)
     print("Running " + imgGroup[0])
@@ -49,8 +48,9 @@ for imgGroup in allImagesPathGrouped:
         max_num_hands=2,
         min_detection_confidence=0.5) as hands:
         for idx, file in enumerate(imgGroup):
-            resultingPath = "augmentedImgsMediaPipe/" + os.path.split(os.path.dirname(file))[1] + "-mediaPipe/" + os.path.split(file)[1]
-
+            augmentType = os.path.split(os.path.dirname(file))[1]
+            resultingPath = "augmentedImgsMediaPipe/" + augmentType + "-mediaPipe/" + os.path.split(file)[1]
+            
             detailsArray = []
             # Read an image, flip it around y-axis for correct handedness output (see
             # above).
@@ -60,22 +60,23 @@ for imgGroup in allImagesPathGrouped:
             # Print handedness and draw hand landmarks on the image.
             # print('Handedness:', results.multi_handedness)
             if not results.multi_hand_landmarks:
-                #print(file)
+                print("No hands detected in {file}")
                 cv2.imwrite(resultingPath, cv2.imread(file))
                 continue
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
             for hand_landmarks in results.multi_hand_landmarks:
                 #print('hand_landmarks:', hand_landmarks)
-                dictLandmark = MessageToDict(hand_landmarks)
-                for point in dictLandmark['landmark']:
-                    if os.path.split(os.path.dirname(file))[1] == "rotatedImg-45":
-                        print(point)
-                        print(os.path.split(os.path.dirname(file))[1])
-                        point['x'], point['y'] = changePoint(os.path.split(os.path.dirname(file))[1], point['x'], point['y'], origin=(0.5, 0.5))
-                        print(point)
-                        print("------------------")
+                if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90":
+                    dictLandmark = MessageToDict(hand_landmarks)
+                    for point in dictLandmark['landmark']:
                         
+                        #print(point)
+                        #print(augmentType)
+                        point['x'], point['y'] = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                        #print(point)
+                        #print("------------------")
+                    
                     #point['x'] = 1
                 
                 #print(hand_landmarks)
@@ -86,7 +87,7 @@ for imgGroup in allImagesPathGrouped:
                 #print(type(hand_landmarks.landmark))
                 
                 #print(hand_landmarks.landmark[0]["x"])
-                print(len(hand_landmarks.landmark))
+                #print(len(hand_landmarks.landmark))
                 
                 #print(hand_landmarks[0][0])
                 #print(type(hand_landmarks))
@@ -114,9 +115,9 @@ for imgGroup in allImagesPathGrouped:
                 xTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width)
                 yTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height)
             
-            xTipP, yTipP = changePoint(os.path.split(os.path.dirname(file))[1], xTxt, yTxt)
+            xTipP, yTipP = changePoint(augmentType, xTxt, yTxt)
             
-            tipFingerNumbers.update({os.path.split(os.path.dirname(file))[1] : (xTipP, yTipP)})
+            tipFingerNumbers.update({augmentType : (xTipP, yTipP)})
             
             newxTxt = annotated_image.shape[1] - xTxt - 1
             newyTxt = yTxt - 10
@@ -144,6 +145,7 @@ for imgGroup in allImagesPathGrouped:
             #cv2.imshow(windowName, annotated_image)
             #cv2.waitKey(0)
             #cv2.destroyAllWindows()
+
     cv2.imwrite(os.path.split(imgGroup[0])[1][0:3] + "-ALL.jpg", imgEditsAll)
     pprint(tipFingerNumbers)
     resultsArray.append(tipFingerNumbers)
