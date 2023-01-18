@@ -14,7 +14,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-
+#https://www.desmos.com/calculator/is1rkv1gzk
 makeFolder("augmentedImgsMediaPipe")
 for augment in os.listdir("augmentedImgs"):
     makeFolder("augmentedImgsMediaPipe/" + augment + "-mediaPipe")
@@ -60,7 +60,7 @@ for imgGroup in allImagesPathGrouped:
             # Print handedness and draw hand landmarks on the image.
             # print('Handedness:', results.multi_handedness)
             if not results.multi_hand_landmarks:
-                print("No hands detected in {file}")
+                print(f"No hands detected in {file}")
                 cv2.imwrite(resultingPath, cv2.imread(file))
                 continue
             image_height, image_width, _ = image.shape
@@ -69,17 +69,13 @@ for imgGroup in allImagesPathGrouped:
                 #print('hand_landmarks:', hand_landmarks)
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90":
                     dictLandmark = MessageToDict(hand_landmarks)
+                    print("-----------------Changed------------" + augmentType)
+                    print(dictLandmark['landmark'][0])
                     for point in dictLandmark['landmark']:
-                        
-                        #print(point)
-                        #print(augmentType)
                         point['x'], point['y'] = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                        #print(point)
-                        #print("------------------")
-                    
-                    #point['x'] = 1
+                    print(dictLandmark['landmark'][0])
+                    print("-------------------------------------")
                 
-                #print(hand_landmarks)
                 
                 
                 

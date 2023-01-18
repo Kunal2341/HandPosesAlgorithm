@@ -28,8 +28,8 @@ def rotate_point_normlized(x, y, rotation, width = 1920, height=1080):
     radians = math.radians(rotation)  # convert degrees to radians
     new_x = (x - 0.5) * math.cos(radians) - (y - 0.5) * math.sin(radians) + 0.5
     new_y = (x - 0.5) * math.sin(radians) + (y - 0.5) * math.cos(radians) + 0.5
-    return new_x * width, new_y * height, new_x, new_y
-
+    #return new_x * width, new_y * height, new_x, new_y
+    return new_x, new_y
 def changePoint(augmentType, xP, yP, origin=(1920/2, 1080/2), normalized=False):
     """
     Different changes to points depending on types of augmented image
