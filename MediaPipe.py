@@ -14,7 +14,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-#https://www.desmos.com/calculator/is1rkv1gzk
+x
 makeFolder("augmentedImgsMediaPipe")
 for augment in os.listdir("augmentedImgs"):
     makeFolder("augmentedImgsMediaPipe/" + augment + "-mediaPipe")

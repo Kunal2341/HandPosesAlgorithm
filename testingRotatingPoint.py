@@ -1,5 +1,8 @@
 from utils import *
 import os
+import pickle
+
+
 
 
 #changePoint(augmentType, xP, yP)
@@ -33,7 +36,7 @@ x = 0.67807657
 y = 0.20800887
 width = 1920
 height = 1080
-rotated_x, rotated_y, new_x, new_y = rotate_point(x, y)
+rotated_x, rotated_y, new_x, new_y = rotate_point_normlized(x, y)
 print("Scaled to image size point: ",rotated_x, rotated_y)
 
 print("Scaled to [0,1] point: ",x, y)
