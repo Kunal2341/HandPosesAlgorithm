@@ -10,11 +10,14 @@ Running different tests on a sample of a 100 hand images to see which model work
 
 # Next Steps - augmenting images
 
+**Problem** --> Failing to properly stack the images becuase of the rotation and normalizing of the points in Google Media Pipes Pipeline.
+
 ## Grid of images 
 
 Below is the grid of images with each on labeled on a set of random images
-
-![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages.png?raw=true)
+|Grid Images|Stacked Images|
+|-|-|
+|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages.png?raw=true)|![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/002-ALL.jpg?raw=true)|
 
 
 Use `conda activate HandPose`
