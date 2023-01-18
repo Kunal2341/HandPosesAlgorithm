@@ -35,9 +35,9 @@ thickness = 3
 resultsArray = []
 
 makeFolder("allEditsStitched")
-l = 0
+#l = 0
 for imgGroup in allImagesPathGrouped:
-    count = 0
+    count = 1
     cleanImgPath = os.path.split(imgGroup[0])[1][0:3] + ".jpg"
     imgEditsAll = cv2.flip(cv2.imread("random_images/" + cleanImgPath), 1)
 
@@ -61,7 +61,7 @@ for imgGroup in allImagesPathGrouped:
             # Print handedness and draw hand landmarks on the image.
             # print('Handedness:', results.multi_handedness)
             if not results.multi_hand_landmarks:
-                print(f"\t{count} - Failed in {file}")
+                print(f"\t{count} - Failed in {augmentType}")
                 cv2.imwrite(resultingPath, cv2.imread(file))
                 count+=1
                 continue
@@ -73,12 +73,14 @@ for imgGroup in allImagesPathGrouped:
                     dictLandmark = MessageToDict(hand_landmarks)
                     print("\tChanged------------" + augmentType + "-------")
                     #print(file)
-                    print(dictLandmark['landmark'][0])
+                    #print(dictLandmark['landmark'][0])
+                    ct = 0
                     for point in dictLandmark['landmark']:
-                        point['x'], point['y'] = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                    print(dictLandmark['landmark'][0])
+                        hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                        ct+=1
+                    #print(dictLandmark['landmark'][0])
                     #break
-                    printhand_landmarks.landmark
+                    #print(hand_landmarks.landmark[0].x)
 
                 #print(
                 #    f'Index finger tip coordinates: (',
@@ -98,6 +100,7 @@ for imgGroup in allImagesPathGrouped:
                     mp_hands.HAND_CONNECTIONS,
                     mp_drawing_styles.get_default_hand_landmarks_style(),
                     mp_drawing_styles.get_default_hand_connections_style())
+                
                 count+=1
                 print(f"\t{count} - Got it for {augmentType}")
 
@@ -117,6 +120,7 @@ for imgGroup in allImagesPathGrouped:
                         font, fontScale, color, thickness, cv2.LINE_AA)
             cv2.putText(annotated_image, str(file[-6:]), (0,40), font, fontScale, color, thickness, cv2.LINE_AA)
             
+            cv2.putText(imgEditsAll, augmentType, (xTipP, yTipP), font, fontScale, color, thickness, cv2.LINE_AA)
             
             cv2.imwrite(resultingPath, annotated_image)
 
@@ -140,10 +144,10 @@ for imgGroup in allImagesPathGrouped:
     print("The file changed!")
     #pprint(tipFingerNumbers)
     resultsArray.append(tipFingerNumbers)
-    print(count)
-    if l == 2:
-        break
-    l += 1
+    print(f"{count} Different drawings on the image")
+    #if l == 2:
+    #    break
+    #l += 1
 
 with open("tipFingerPoint.pkl", "wb") as f:
-    pickle.dump(resultsArray)
+    f.dump(resultsArray)
