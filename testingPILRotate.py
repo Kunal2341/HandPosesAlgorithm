@@ -7,6 +7,9 @@ def rotate_point(x, y, width, height):
     new_y = (x - 0.5) * math.sin(radians) + (y - 0.5) * math.cos(radians) + 0.5
     return new_x * width, new_y * height
 
+#{'x': 0.67807657, 'y': 0.20800887, 'z': 5.914594e-08}
+#{'x': 0.8323880582867637, 'y': 0.41945024214811816, 'z': 5.914594e-08}
+
 x = 0.67807657
 y = 0.20800887
 width = 1920
@@ -16,7 +19,7 @@ origin_x,origin_y = x*width, y*height
 
 # create a new image and draw the rotated point on it
 image = Image.new("RGB", (width, height), (255, 255, 255))
-image = Image.open("009.jpg")
+image = Image.open("001.jpg")
 draw = ImageDraw.Draw(image)
 
 # increase the size of the point

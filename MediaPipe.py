@@ -156,7 +156,7 @@ with open("tipFingerPoint.pkl", "wb") as f:
 
 
 #DATA
-
+"""
 -----------------Changed------------rotatedImg-45
 augmentedImgs/rotatedImg-45/001-rotatedImg-45.jpg
 {'x': 0.67807657, 'y': 0.20800887, 'z': 5.914594e-08}
@@ -167,3 +167,4 @@ augmentedImgs/rotatedImg-90/001-rotatedImg-90.jpg
 {'x': 0.73689383, 'y': 0.5081345, 'z': 1.1645911e-07}
 {'x': 0.49186549999999996, 'y': 0.73689383, 'z': 1.1645911e-07}
 -------------------------------------
+"""
