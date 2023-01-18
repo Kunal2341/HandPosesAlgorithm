@@ -29,3 +29,5 @@ draw.ellipse((origin_x-size, origin_y-size, origin_x+size, origin_y+size), fill=
 
 # display the image
 image.save("a.png")
+
+

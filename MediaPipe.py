@@ -14,7 +14,6 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-
 makeFolder("augmentedImgsMediaPipe")
 for augment in os.listdir("augmentedImgs"):
     makeFolder("augmentedImgsMediaPipe/" + augment + "-mediaPipe")
@@ -36,13 +35,13 @@ thickness = 3
 resultsArray = []
 
 makeFolder("allEditsStitched")
-
+l = 0
 for imgGroup in allImagesPathGrouped:
-
+    count = 0
     cleanImgPath = os.path.split(imgGroup[0])[1][0:3] + ".jpg"
     imgEditsAll = cv2.flip(cv2.imread("random_images/" + cleanImgPath), 1)
 
-    print("-"*20)
+    print("-"*40)
     print("Running " + imgGroup[0])
     tipFingerNumbers = {}
     with mp_hands.Hands(
@@ -62,8 +61,9 @@ for imgGroup in allImagesPathGrouped:
             # Print handedness and draw hand landmarks on the image.
             # print('Handedness:', results.multi_handedness)
             if not results.multi_hand_landmarks:
-                print(f"No hands detected in {file}")
+                print(f"\t{count} - Failed in {file}")
                 cv2.imwrite(resultingPath, cv2.imread(file))
+                count+=1
                 continue
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
@@ -71,13 +71,15 @@ for imgGroup in allImagesPathGrouped:
                 #print('hand_landmarks:', hand_landmarks)
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
                     dictLandmark = MessageToDict(hand_landmarks)
-                    print("-----------------Changed------------" + augmentType + "---------------------")
-                    print(file)
+                    print("\tChanged------------" + augmentType + "-------")
+                    #print(file)
                     print(dictLandmark['landmark'][0])
                     for point in dictLandmark['landmark']:
                         point['x'], point['y'] = changePoint(augmentType, point['x'], point['y'], normalized=True)
                     print(dictLandmark['landmark'][0])
-                
+                    #break
+                    printhand_landmarks.landmark
+
                 #print(
                 #    f'Index finger tip coordinates: (',
                 #    f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
@@ -96,7 +98,8 @@ for imgGroup in allImagesPathGrouped:
                     mp_hands.HAND_CONNECTIONS,
                     mp_drawing_styles.get_default_hand_landmarks_style(),
                     mp_drawing_styles.get_default_hand_connections_style())
-                
+                count+=1
+                print(f"\t{count} - Got it for {augmentType}")
 
                 #for hand_landmarks in results.multi_hand_landmarks:
                 xTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width)
@@ -134,9 +137,13 @@ for imgGroup in allImagesPathGrouped:
             #cv2.destroyAllWindows()
 
     cv2.imwrite("allEditsStitched/" + os.path.split(imgGroup[0])[1][0:3] + "-ALL.jpg", imgEditsAll)
-    pprint(tipFingerNumbers)
+    print("The file changed!")
+    #pprint(tipFingerNumbers)
     resultsArray.append(tipFingerNumbers)
-
+    print(count)
+    if l == 2:
+        break
+    l += 1
 
 with open("tipFingerPoint.pkl", "wb") as f:
     pickle.dump(resultsArray)
