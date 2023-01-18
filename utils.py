@@ -6,7 +6,7 @@ def makeFolder(folderName):
     if not os.path.exists(folderName):
         os.mkdir(folderName)
 
-def rotate_around_point_lowperf(point, radians, origin=(1920/2, 1080/2)):
+def rotate_around_point_lowperf(point, radians, origin):
     """Rotate a point around a given point.
     
     I call this the "low performance" version since it's recalculating
@@ -21,13 +21,13 @@ def rotate_around_point_lowperf(point, radians, origin=(1920/2, 1080/2)):
 
     return int(qx), int(qy)
 
-def changePoint(augmentType, xP, yP):
+def changePoint(augmentType, xP, yP, origin=(1920/2, 1080/2)):
     if augmentType == "flippedImg":
         return xP, 1080-yP-1
     elif augmentType == "rotatedImg-45":
-        return rotate_around_point_lowperf((xP, yP), 45)
+        return rotate_around_point_lowperf((xP, yP), 45, origin)
     elif augmentType == "rotatedImg-90":
-        return rotate_around_point_lowperf((xP, yP), 90)
+        return rotate_around_point_lowperf((xP, yP), 90, origin)
     else:
         return xP, yP
 

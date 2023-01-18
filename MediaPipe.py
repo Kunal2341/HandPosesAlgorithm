@@ -69,13 +69,18 @@ for imgGroup in allImagesPathGrouped:
                 #print('hand_landmarks:', hand_landmarks)
                 dictLandmark = MessageToDict(hand_landmarks)
                 for point in dictLandmark['landmark']:
-                    print(point['x'])
-                    point['x'] = 1
+                    if os.path.split(os.path.dirname(file))[1] == "rotatedImg-45":
+                        print(point)
+                        print(os.path.split(os.path.dirname(file))[1])
+                        point['x'], point['y'] = changePoint(os.path.split(os.path.dirname(file))[1], point['x'], point['y'], origin=(0.5, 0.5))
+                        print(point)
+                        print("------------------")
+                        
+                    #point['x'] = 1
                 
-                print(hand_landmarks)
+                #print(hand_landmarks)
                 
                 
-                print(thing)
                 
                 
                 #print(type(hand_landmarks.landmark))
