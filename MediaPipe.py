@@ -14,7 +14,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-x
+
 makeFolder("augmentedImgsMediaPipe")
 for augment in os.listdir("augmentedImgs"):
     makeFolder("augmentedImgsMediaPipe/" + augment + "-mediaPipe")
@@ -70,12 +70,13 @@ for imgGroup in allImagesPathGrouped:
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90":
                     dictLandmark = MessageToDict(hand_landmarks)
                     print("-----------------Changed------------" + augmentType)
+                    print(file)
                     print(dictLandmark['landmark'][0])
                     for point in dictLandmark['landmark']:
                         point['x'], point['y'] = changePoint(augmentType, point['x'], point['y'], normalized=True)
                     print(dictLandmark['landmark'][0])
                     print("-------------------------------------")
-                
+                    break
                 
                 
                 
@@ -152,3 +153,17 @@ with open("tipFingerPoint.pkl", "wb") as f:
 
 #[(819, 368), (820, 369), (820, 366), (819, 375), (818, 372), (818, 366), (818, 365), (820, 707), (819, 368), (979, 321), (1131, 402)]
 #[(819, 368), (820, 369), (820, 366), (819, 375), (818, 372), (818, 366), (818, 365), (820, 372), (819, 368), (1156, 441), (1006, 754)]
+
+
+#DATA
+
+-----------------Changed------------rotatedImg-45
+augmentedImgs/rotatedImg-45/001-rotatedImg-45.jpg
+{'x': 0.67807657, 'y': 0.20800887, 'z': 5.914594e-08}
+{'x': 0.8323880582867637, 'y': 0.41945024214811816, 'z': 5.914594e-08}
+-------------------------------------
+-----------------Changed------------rotatedImg-90
+augmentedImgs/rotatedImg-90/001-rotatedImg-90.jpg
+{'x': 0.73689383, 'y': 0.5081345, 'z': 1.1645911e-07}
+{'x': 0.49186549999999996, 'y': 0.73689383, 'z': 1.1645911e-07}
+-------------------------------------
