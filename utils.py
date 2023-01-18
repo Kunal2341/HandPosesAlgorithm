@@ -1,3 +1,7 @@
+import os 
+import numpy as np
+import math
+
 def makeFolder(folderName):
     if not os.path.exists(folderName):
         os.mkdir(folderName)
