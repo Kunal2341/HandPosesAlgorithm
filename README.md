@@ -97,3 +97,18 @@ I am Kunal Aneja, first year Computer Science student working on Pressure Vision
 
 @Kunal2341 -- kaneja6@gatech.edu
 
+
+
+```python
+def z_score_outliers(data, threshold=3):
+    # Separate the x and y values into separate arrays
+    x = [point[0] for point in data]
+    y = [point[1] for point in data]
+    # Combine the x and y values into one array
+    data = np.column_stack((x, y))
+    # Compute the Z-scores for each point
+    z_scores = np.abs(stats.zscore(data))
+    # Identify the points that have Z-scores above the threshold
+    outliers = np.where(z_scores > threshold)
+    return outliers
+```

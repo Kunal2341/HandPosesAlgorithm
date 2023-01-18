@@ -20,7 +20,7 @@ def makeTextImage(text):
     defaultImage = Image.new("RGB", (1920, 1080), (0, 0, 0))
     draw = ImageDraw.Draw(defaultImage)
     font = ImageFont.truetype("arial.ttf", 200)
-    draw.text((1920/2, 1080/2 - (len(text) * 10)), text, (255, 255, 255), font=font)
+    draw.text((1920 / 2, 1080 / 2 - (len(text) * 10)), text, (255, 255, 255), font=font)
     return defaultImage
 
 choosenPhotos = ["001", "025", "082", "062", "017"]
@@ -46,7 +46,9 @@ for i in range(len(photosPaths)):
     #px, py = x * (i % ncol), y * int(i/ncol)
     gridImages.paste(photosPaths[i], (px, py))
 
-gridImages.save("allGridImages.png")
+# JPG better storage than PNG
 
-gridImagesSized = gridImages.resize((int(gridImages.size[0]/2), int(gridImages.size[1]/2)), Image.ANTIALIAS)
-gridImagesSized.save("allGridImagesStorage.png", optimize=True)
+gridImages.save("allGridImages.jpg")
+
+# gridImagesSized = gridImages.resize((int(gridImages.size[0]/2), int(gridImages.size[1]/2)), Image.ANTIALIAS)
+# gridImagesSized.save("allGridImagesStorage.png", optimize=True)

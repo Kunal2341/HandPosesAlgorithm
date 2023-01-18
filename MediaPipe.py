@@ -1,3 +1,4 @@
+import utils
 import cv2
 import mediapipe as mp
 import os 
@@ -5,15 +6,10 @@ import numpy as np
 from pprint import pprint
 import math
 
-
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-
-def makeFolder(folderName):
-    if not os.path.exists(folderName):
-        os.mkdir(folderName)
 
 makeFolder("augmentedImgsMediaPipe")
 for augment in os.listdir("augmentedImgs"):
@@ -26,41 +22,7 @@ for imgNumber in range(100):
         eachImgAugments.append("augmentedImgs/" + augment + "/" + sorted(os.listdir("augmentedImgs/" + augment))[imgNumber])
     allImagesPathGrouped.append(eachImgAugments)
 
-#pprint(allImagesPathGrouped[10])
-
-#IMAGE_FILES = []
-#for img in os.listdir(folderName):
-#    IMAGE_FILES.append(folderName + "/" + img)
-
-#resultesFolder = "random_images_results_final/"
-#makeFolder(resultesFolder)
-
 #1920, 1080
-
-def rotate_around_point_lowperf(point, radians, origin=(1920/2, 1080/2)):
-    """Rotate a point around a given point.
-    
-    I call this the "low performance" version since it's recalculating
-    the same values more than once [cos(radians), sin(radians), x-ox, y-oy).
-    It's more readable than the next function, though.
-    """
-    x, y = point
-    ox, oy = origin
-
-    qx = ox + math.cos(radians) * (x - ox) + math.sin(radians) * (y - oy)
-    qy = oy + -math.sin(radians) * (x - ox) + math.cos(radians) * (y - oy)
-
-    return int(qx), int(qy)
-
-def changePoint(augmentType, xP, yP):
-    if augmentType == "flippedImg":
-        return xP, 1080-yP-1
-    elif augmentType == "rotatedImg-45":
-        return rotate_around_point_lowperf((xP, yP), 45)
-    elif augmentType == "rotatedImg-90":
-        return rotate_around_point_lowperf((xP, yP), 90)
-    else:
-        return xP, yP
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 fontScale = 1
