@@ -7,6 +7,7 @@ from pprint import pprint
 import math
 import pickle
 from google.protobuf import text_format
+from google.protobuf.json_format import MessageToDict
 #from mediapipe.framework.formats import landmarks_pb2
 
 mp_drawing = mp.solutions.drawing_utils
@@ -65,11 +66,19 @@ for imgGroup in allImagesPathGrouped:
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
             for hand_landmarks in results.multi_hand_landmarks:
-                print('hand_landmarks:', hand_landmarks)
-                for pointDict in hand_landmarks.landmark:
-                    print(f"{pointDict.x}")
+                #print('hand_landmarks:', hand_landmarks)
+                dictLandmark = MessageToDict(hand_landmarks)
+                for point in dictLandmark['landmark']:
+                    print(point['x'])
+                    point['x'] = 1
                 
-                print(type(hand_landmarks.landmark))
+                print(hand_landmarks)
+                
+                
+                print(thing)
+                
+                
+                #print(type(hand_landmarks.landmark))
                 
                 #print(hand_landmarks.landmark[0]["x"])
                 print(len(hand_landmarks.landmark))
