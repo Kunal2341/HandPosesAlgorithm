@@ -35,7 +35,7 @@ thickness = 3
 resultsArray = []
 
 makeFolder("allEditsStitched")
-#l = 0
+l = 0
 for imgGroup in allImagesPathGrouped:
     count = 1
     cleanImgPath = os.path.split(imgGroup[0])[1][0:3] + ".jpg"
@@ -72,8 +72,8 @@ for imgGroup in allImagesPathGrouped:
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
                     dictLandmark = MessageToDict(hand_landmarks)
                     print("\tChanged------------" + augmentType + "-------")
-                    #print(file)
-                    #print(dictLandmark['landmark'][0])
+                    print(file)
+                    print(dictLandmark['landmark'])
                     ct = 0
                     for point in dictLandmark['landmark']:
                         hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
@@ -145,9 +145,10 @@ for imgGroup in allImagesPathGrouped:
     #pprint(tipFingerNumbers)
     resultsArray.append(tipFingerNumbers)
     print(f"{count} Different drawings on the image")
-    #if l == 2:
-    #    break
-    #l += 1
+    
+    if l == 2:
+        break
+    l += 1
 
 with open("tipFingerPoint.pkl", "wb") as f:
     f.dump(resultsArray)
