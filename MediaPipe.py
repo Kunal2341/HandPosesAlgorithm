@@ -11,7 +11,7 @@ from google.protobuf.json_format import MessageToDict
 #from mediapipe.framework.formats import landmarks_pb2
 
 #mabye changed
-here is a chnage lets see if the gets uplaods
+#here is a chnage lets see if the gets uplaods
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
