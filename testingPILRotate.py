@@ -16,7 +16,6 @@ def rotate_point(x, y, width, height):
 #-----------------------------------------
 
 
-I dont know if you see this but if you do im happy
 
 width = 1920
 height = 1080
