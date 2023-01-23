@@ -12,6 +12,7 @@ Below is the grid of images with each on labeled on the following images
 
 ## Analysis 
 
+Overall `darken 50%` & `resolution 50%` & `brighten both have significant helps to the accuracy of the mediapipes 
 
 |Bad Image|Problem|GIF Image|Helper Augments|
 |-|-|-|-|
