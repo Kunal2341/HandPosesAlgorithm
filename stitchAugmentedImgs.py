@@ -25,6 +25,12 @@ def makeTextImage(text, width):
     text_w, text_h = draw.textsize(wrapped_text, font=font)
     draw.text(((1920 - text_w) / 2, (1080 - text_h) / 2), wrapped_text, (255, 255, 255), font=font)
     return defaultImage
+def makeFolder(folderName):
+    """
+    Created directory if not already made
+    """
+    if not os.path.exists(folderName):
+        os.mkdir(folderName)
 
 choosenPhotos = ["006", "009", "018", "043", "045"]
 #choosenPhotos = ["047", "049", "051", "052", "061"]
