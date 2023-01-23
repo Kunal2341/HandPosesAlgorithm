@@ -54,12 +54,9 @@ for imgGroup in allImagesPathGrouped:
         for idx, file in enumerate(imgGroup):
             augmentType = os.path.split(os.path.dirname(file))[1]
             resultingPath = "augmentedImgsMediaPipe/" + augmentType + "-mediaPipe/" + os.path.split(file)[1]
-            
+            print(file)
             detailsArray = []
-            # Read an image, flip it around y-axis for correct handedness output (see
-            # above).
             image = cv2.flip(cv2.imread(file), 1)
-            # Convert the BGR image to RGB before processing.
             results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
             # Print handedness and draw hand landmarks on the image.
             # print('Handedness:', results.multi_handedness)
@@ -70,10 +67,11 @@ for imgGroup in allImagesPathGrouped:
                 continue
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
+            """
             if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
                 print("THE THING --------------")
                 print(augmentType)
-                print(results.multi_hand_landmarks)
+                print(MessageToDict(results.multi_hand_landmarks[0]))
             """
             for hand_landmarks in results.multi_hand_landmarks:
                 #print('hand_landmarks:', hand_landmarks)
@@ -115,9 +113,6 @@ for imgGroup in allImagesPathGrouped:
                 #for hand_landmarks in results.multi_hand_landmarks:
                 xTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width)
                 yTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height)
-            """
-            xTxt = 0
-            yTxt = 0
             xTipP, yTipP = changePoint(augmentType, xTxt, yTxt)
             
             tipFingerNumbers.update({augmentType : (xTipP, yTipP)})
