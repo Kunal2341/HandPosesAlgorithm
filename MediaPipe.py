@@ -74,12 +74,14 @@ for imgGroup in allImagesPathGrouped:
                 print(MessageToDict(results.multi_hand_landmarks[0]))
             """
             for hand_landmarks in results.multi_hand_landmarks:
-                #print('hand_landmarks:', hand_landmarks)
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
                     dictLandmark = MessageToDict(hand_landmarks)
+                    
                     print("\tChanged------------" + augmentType + "-------")
                     print(file)
                     print(dictLandmark['landmark'])
+
+
                     #ct = 0
                     #for point in dictLandmark['landmark']:
                     #    hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
