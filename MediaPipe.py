@@ -48,7 +48,6 @@ for imgGroup in allImagesPathGrouped:
         for idx, file in enumerate(imgGroup):
             augmentType = os.path.split(os.path.dirname(file))[1]
             resultingPath = "augmentedImgsMediaPipe/" + augmentType + "-mediaPipe/" + os.path.split(file)[1]
-            print(file)
             detailsArray = []
             image = cv2.flip(cv2.imread(file), 1)
             results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
@@ -61,25 +60,28 @@ for imgGroup in allImagesPathGrouped:
                 continue
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
-            """
-            if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
-                print("THE THING --------------")
-                print(augmentType)
-                print(MessageToDict(results.multi_hand_landmarks[0]))
-            """
             for hand_landmarks in results.multi_hand_landmarks:
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
                     dictLandmark = MessageToDict(hand_landmarks)
                     
                     print("\tChanged------------" + augmentType + "-------")
-                    print(file)
+                    
+                    print(len(dictLandmark['landmark']))
+                    print(len(hand_landmarks.landmark))
+
+
                     print(dictLandmark['landmark'])
+                    print(hand_landmarks.landmark)
+                    print("-"*20)
 
                     countLandMark = 0
                     for point in dictLandmark['landmark']:
-                        hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                        countLandMark+=1
+                        
+                        hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[countLandMark].y = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                        print(hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[countLandMark].y)
 
+                        countLandMark+=1
+                    
                 #print(
                 #    f'Index finger tip coordinates: (',
                 #    f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
