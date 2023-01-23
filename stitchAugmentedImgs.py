@@ -33,8 +33,8 @@ def makeFolder(folderName):
         os.mkdir(folderName)
 
 choosenPhotos = ["006", "009", "018", "043", "045"]
-#choosenPhotos = ["047", "049", "051", "052", "061"]
-#choosenPhotos = ["065", "073", "078", "080", "088"]
+choosenPhotos = ["047", "049", "051", "052", "061"]
+choosenPhotos = ["065", "073", "078", "080", "088"]
 
 photosPaths = []
 
