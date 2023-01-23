@@ -12,7 +12,7 @@ Below is the grid of images with each on labeled on the following images
 
 ## Analysis 
 
-Overall `darken 50%` & `resolution 50%` & `brighten both have significant helps to the accuracy of the mediapipes 
+Overall `darken 50%` & `resolution 50%` & `brighten 50%` all have significant helps to the accuracy of the mediapipes 
 
 |Bad Image|Problem|GIF Image|Helper Augments|
 |-|-|-|-|
@@ -20,7 +20,7 @@ Overall `darken 50%` & `resolution 50%` & `brighten both have significant helps 
 ![stacked 009 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|Middle, Ring, and Pinky finger points prediction due to covered view|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/006.gif?raw=truef" alt="GIF of 009 image" loop=inf/>|`resolution 50%`|
 ![stacked 018 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)|Main pointer fail to reach correct tip|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/018.gif?raw=truef" alt="GIF of 018 image" loop=inf/>|`darken 50%` & `grayscale` & `brighten 75%`|
 ![stacked 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|Nothing too bad good average on detected images|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=truef" alt="GIF of 043 image" loop=inf/>|n/a|
-![stacked 045 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/045-ALL.jpg?raw=true)|Middle and ring finger predictions wrong, covered and curled|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=truef" alt="GIF of 043 image" loop=inf/>|**None**|
+![stacked 045 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/045-ALL.jpg?raw=true)|Middle and ring finger predictions wrong, covered and curled|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/045.gif?raw=truef" alt="GIF of 045 image" loop=inf/>|**None**|
 |![stacked 047 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/047-ALL.jpg?raw=true)|Pinky prediction off|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/047.gif?raw=truef" alt="GIF of 047 image" loop=inf/>|`resolution 50%` & `brighten 25%` & `darken 50%` and `darken 25%`|
 ![stacked 049 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/049-ALL.jpg?raw=true)|Thumb predition completely off|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/049.gif?raw=truef" alt="GIF of 049 image" loop=inf/>|**None**|
 ![stacked 051 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/051-ALL.jpg?raw=true)|Predictions all over the place|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/051.gif?raw=truef" alt="GIF of 051 image" loop=inf/>|`darken 50%` (*kinda*)|
@@ -121,19 +121,3 @@ python demo/bottom_up_img_demo.py associative_embedding_hrnet_w32_coco_512x512.p
 I am Kunal Aneja, first year Computer Science student working on Pressure Vision project with Patrick Grady
 
 @Kunal2341 -- kaneja6@gatech.edu
-
-
-
-```python
-def z_score_outliers(data, threshold=3):
-    # Separate the x and y values into separate arrays
-    x = [point[0] for point in data]
-    y = [point[1] for point in data]
-    # Combine the x and y values into one array
-    data = np.column_stack((x, y))
-    # Compute the Z-scores for each point
-    z_scores = np.abs(stats.zscore(data))
-    # Identify the points that have Z-scores above the threshold
-    outliers = np.where(z_scores > threshold)
-    return outliers
-```
