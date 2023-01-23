@@ -65,7 +65,7 @@ for i in range(len(photosPaths)):
     gridImages.paste(photosPaths[i], (px, py))
 
 width, height = gridImages.size
-max_dim = 800
+max_dim = 1300
 if width > height:
     new_width = max_dim
     new_height = int(new_width * height / width)

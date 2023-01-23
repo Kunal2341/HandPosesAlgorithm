@@ -15,9 +15,9 @@ Below is the grid of images with each on labeled on the following images
 
 |Bad Image|Problem|GIF Image|
 |-|-|-|
-|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|x|x|
-![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|||
-![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)|||
+|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)||x|
+![stacked 009 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|||
+![stacked 018 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)|||
 ![stacked 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|||
 ![stacked 045 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/045-ALL.jpg?raw=true)|||
 
