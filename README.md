@@ -6,9 +6,9 @@
 ## Grid of images 
 
 Below is the grid of images with each on labeled on the following images
-|Grid Images|Stacked Images|
-|-|-|
-|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/002-ALL.jpg?raw=true)|
+|Grid Images|Stacked Images for `043`|GIF
+|-|-|-|
+|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages006,009,018,043,045.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|![GIF of 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=true|
 
 
 Use `conda activate HandPose`
