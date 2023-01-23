@@ -26,9 +26,9 @@ def makeTextImage(text, width):
     draw.text(((1920 - text_w) / 2, (1080 - text_h) / 2), wrapped_text, (255, 255, 255), font=font)
     return defaultImage
 
-#choosenPhotos = ["006", "009", "018", "043", "045"]
+choosenPhotos = ["006", "009", "018", "043", "045"]
 #choosenPhotos = ["047", "049", "051", "052", "061"]
-choosenPhotos = ["065", "073", "078", "080", "088"]
+#choosenPhotos = ["065", "073", "078", "080", "088"]
 
 photosPaths = []
 
@@ -62,7 +62,7 @@ for i in range(len(photosPaths)):
 
 # JPG better storage than PNG
 
-gridImages.save("allGridImages" + ",".join(map(str,choosenPhotos)) + ".jpg", quality=50)
+gridImages.save("allGridImages" + ",".join(map(str,choosenPhotos)) + ".jpg", quality=25)
 
 # gridImagesSized = gridImages.resize((int(gridImages.size[0]/2), int(gridImages.size[1]/2)), Image.ANTIALIAS)
 # gridImagesSized.save("allGridImagesStorage.png", optimize=True)
