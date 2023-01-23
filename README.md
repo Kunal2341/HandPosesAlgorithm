@@ -19,7 +19,7 @@ Below is the grid of images with each on labeled on the following images
 ![stacked 009 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|Middle, Ring, and Pinky finger points prediction due to covered view|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/006.gif?raw=truef" alt="GIF of 009 image" loop=inf/>|`resolution 50%`|
 ![stacked 018 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)|Main pointer fail to reach correct tip|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/018.gif?raw=truef" alt="GIF of 018 image" loop=inf/>|`darken 50%` & `grayscale` & `brighten 75%`|
 ![stacked 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|Nothing too bad good average on detected images|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=truef" alt="GIF of 043 image" loop=inf/>|n/a|
-![stacked 045 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/045-ALL.jpg?raw=true)||||
+![stacked 045 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/045-ALL.jpg?raw=true)|Middle and ring finger predictions wrong, covered and curled|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=truef" alt="GIF of 043 image" loop=inf/>|none|
 
 
 
