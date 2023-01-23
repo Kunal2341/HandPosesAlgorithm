@@ -8,23 +8,25 @@
 Below is the grid of images with each on labeled on the following images
 |Grid Images|Stacked Images for `043`|GIF
 |-|-|-|
-|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages006,009,018,043,045.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|![GIF of 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=true|
+|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages006,009,018,043,045.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|![GIF of 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=true)|
 
+## Analysis 
 
+## Running the code
 Use `conda activate HandPose`
 
 Check out image `vis_006` for possible mistakes in google media pipe
 
 Change the image using the following adjustments only with **google media pipe**
 
- - Brigthen the image --> Done
- - Darken --> Done
- - Flipped image --> Done
- - Contrast --> Done
- - Lower resolution 50% --> Done
- - Rotate it 45 --> Done
- - Rotate it 90 --> Done
- - Grayscale --> Done
+- [x] Brigthen the image --> Done
+- [x] Darken --> Done
+- [x] Flipped image --> Done
+- [x] Contrast --> Done
+- [x] Lower resolution 50% --> Done
+- [x] Rotate it 45 --> Done
+- [x] Rotate it 90 --> Done
+- [x] Grayscale --> Done
 
 Test out results by draw each image on top of each other 
 
