@@ -23,9 +23,9 @@ Below is the grid of images with each on labeled on the following images
 
 |![stacked 047 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/047-ALL.jpg?raw=true)|Pinky prediction off|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/047.gif?raw=truef" alt="GIF of 047 image" loop=inf/>|`resolution 50%` & `brighten 25%` & `darken 50%` and `darken 25%`|
 ![stacked 049 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/049-ALL.jpg?raw=true)|Thumb predition completely off|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/049.gif?raw=truef" alt="GIF of 049 image" loop=inf/>|**None**|
-![stacked 049 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/049-ALL.jpg?raw=true)||<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/049.gif?raw=truef" alt="GIF of 049 image" loop=inf/>||
-![stacked 049 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/049-ALL.jpg?raw=true)||<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/049.gif?raw=truef" alt="GIF of 049 image" loop=inf/>||
-![stacked 049 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/049-ALL.jpg?raw=true)||<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/049.gif?raw=truef" alt="GIF of 049 image" loop=inf/>||
+![stacked 051 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/051-ALL.jpg?raw=true)|Predictions all over the place|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/051.gif?raw=truef" alt="GIF of 051 image" loop=inf/>|`darken 50%` (*kinda*)|
+![stacked 052 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/052-ALL.jpg?raw=true)||<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/052.gif?raw=truef" alt="GIF of 052 image" loop=inf/>||
+![stacked 061 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/061-ALL.jpg?raw=true)||<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/061.gif?raw=truef" alt="GIF of 061 image" loop=inf/>||
 
 
 
