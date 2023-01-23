@@ -60,11 +60,21 @@ for i in range(len(photosPaths)):
 
 
 
-print(gridImages.size)
+width, height = gridImages.size
+max_dim = 800
+
+# Calculate the new size preserving aspect ratio
+if width > height:
+    new_width = max_dim
+    new_height = int(new_width * height / width)
+else:
+    new_height = max_dim
+    new_width = int(new_height * width / height)
+
+gridImages = gridImages.resize((new_width, new_height))
 
 # JPG better storage than PNG
-
-gridImages.save("allGridImages" + ",".join(map(str,choosenPhotos)) + ".jpg", quality=25)
+gridImages.save("allGridImages" + ",".join(map(str,choosenPhotos)) + ".jpg")
 
 # gridImagesSized = gridImages.resize((int(gridImages.size[0]/2), int(gridImages.size[1]/2)), Image.ANTIALIAS)
 # gridImagesSized.save("allGridImagesStorage.png", optimize=True)
