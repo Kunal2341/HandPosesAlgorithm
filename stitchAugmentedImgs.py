@@ -23,17 +23,17 @@ def makeTextImage(text):
     draw.text((1920 / 2, 1080 / 2 - (len(text) * 10)), text, (255, 255, 255), font=font)
     return defaultImage
 
-choosenPhotos = ["001", "025", "082", "062", "017"]
+choosenPhotos = ["006", "009", "018", "043", "045"]
+
+# 047, 049, 051*, 052, 061, 065, 073, 078*, 080, 088
+
 photosPaths = []
 
-#Add the 0 image
-#photosPaths.append(makeTextImage("RANDOM IMAGES ON GOOGLE MEDIA PIPE"))
-#for imgNumText in choosenPhotos:
-#    photosPaths.append(makeTextImage("Image " + imgNumText))
+folderAugmentedImgs = "augmentedImgsMediaPipe"
+
 for imgNum in choosenPhotos:
-    for augment in os.listdir("augmentedImgs"):
-        #print("augmentedImgs/"+ augment + "/" + imgNum + "-" + augment + ".jpg")
-        im = Image.open("augmentedImgs/"+ augment + "/" + imgNum + "-" + augment + ".jpg", 'r')
+    for augment in os.listdir(folderAugmentedImgs):
+        im = Image.open(folderAugmentedImgs + augment + "/" + imgNum + "-" + augment + ".jpg", 'r')
         photosPaths.append(im)
 
 
@@ -46,9 +46,14 @@ for i in range(len(photosPaths)):
     #px, py = x * (i % ncol), y * int(i/ncol)
     gridImages.paste(photosPaths[i], (px, py))
 
+title = "My Title"
+titleImage = makeTextImage(title)
+gridImages.paste(titleImage, (0,0))
+
+
 # JPG better storage than PNG
 
-gridImages.save("allGridImages.jpg")
+gridImages.save("allGridImages.jpg", quality=50)
 
 # gridImagesSized = gridImages.resize((int(gridImages.size[0]/2), int(gridImages.size[1]/2)), Image.ANTIALIAS)
 # gridImagesSized.save("allGridImagesStorage.png", optimize=True)

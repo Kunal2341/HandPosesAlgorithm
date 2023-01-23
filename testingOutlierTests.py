@@ -5,7 +5,6 @@ from pprint import pprint
 with open('data.pickle', 'rb') as f:
     data = pickle.load(f)
 
-
 def detect_outliers(data):
     # Initialize an empty dictionary to store outliers
     outliers = {}

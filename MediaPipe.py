@@ -131,7 +131,7 @@ for imgGroup in allImagesPathGrouped:
             #cv2.waitKey(0)
             #cv2.destroyAllWindows()
 
-    
+
 
 
     cv2.imwrite("allEditsStitched/" + os.path.split(imgGroup[0])[1][0:3] + "-ALL.jpg", imgEditsAll)
