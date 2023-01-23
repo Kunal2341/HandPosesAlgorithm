@@ -58,19 +58,14 @@ for i in range(len(photosPaths)):
     px, py = x * int(i/nrow), y * (i % nrow) + title_h + 100
     gridImages.paste(photosPaths[i], (px, py))
 
-
-
 width, height = gridImages.size
 max_dim = 800
-
-# Calculate the new size preserving aspect ratio
 if width > height:
     new_width = max_dim
     new_height = int(new_width * height / width)
 else:
     new_height = max_dim
     new_width = int(new_height * width / height)
-
 gridImages = gridImages.resize((new_width, new_height))
 
 # JPG better storage than PNG
