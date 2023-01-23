@@ -20,13 +20,6 @@ def rotate_point_new(x, y, angle):
     y_rotated = x * s + y * c
     return x_rotated, y_rotated
 
-#{'x': 0.67807657, 'y': 0.20800887, 'z': 5.914594e-08}
-#{'x': 0.8323880582867637, 'y': 0.41945024214811816, 'z': 5.914594e-08}
-
-#-----------------------------------------
-
-#?
-
 width = 1920
 height = 1080
 
@@ -38,8 +31,52 @@ handLandMark = {'landmark': [{'x': 0.67807657, 'y': 0.20800887, 'z': 5.914594e-0
 file = "augmentedImgs/rotatedImg-45/001-rotatedImg-45.jpg"
 #file = "random_images/001.jpg"
 print(file)
-print(len(handLandMark['landmark']))
-#pprint(handLandMark['landmark'])
+
+
+im = Image.open(file)
+im = im.transpose(Image.FLIP_LEFT_RIGHT)
+
+
+# Create an ImageDraw object
+draw = ImageDraw.Draw(im)
+
+# Iterate through the handLandMark dictionary
+order = [4,3,2,1,0,8,7,6,5,0,12,11,10,9,0,16,15,14,13,0,20,19,18,17,0]
+
+# Iterate through the handLandMark dictionary
+for i, index in enumerate(order):
+    point = handLandMark['landmark'][index]
+    # Extract the x and y coordinates
+    x = point['x']
+    y = point['y']
+    # scale the coordinates
+    x_scaled = int(x*width)
+    y_scaled = int(y*height)
+
+    # Draw the point on the image
+    draw.point((x_scaled, y_scaled), fill=(255, 0, 255))
+
+    # Draw a connector to the next point
+    if i < len(order)-1:
+        next_index = order[i+1]
+        next_point = handLandMark['landmark'][next_index]
+        next_x = next_point['x']
+        next_y = next_point['y']
+        next_x_scaled = int(next_x*width)
+        next_y_scaled = int(next_y*height)
+        draw.line((x_scaled, y_scaled, next_x_scaled, next_y_scaled), fill=(255, 0, 0))
+
+
+# Save the modified image
+im.save("output2.jpg")
+
+
+
+
+
+
+
+"""
 
 # image = Image.new("RGB", (width, height), (255, 255, 255))
 image = Image.open(file)
@@ -50,17 +87,21 @@ size = 5
 for point in handLandMark['landmark']:
 
     xMain = point['x'] * width
+    yMain = point['y'] * height
+    draw.ellipse((xMain-size, yMain-size, xMain+size, yMain+size), fill=(0, 0, 255))
 
-    draw.ellipse((rotated_x-size, rotated_y-size, rotated_x+size, rotated_y+size), fill=(0, 0, 255))
+    #xRotatedNew, yRotatedNew = rotate_point_new(point['x'] * width, point['y'] * height, -45)
+    #draw.ellipse((xRotatedNew-size, yRotatedNew-size, xRotatedNew+size, yRotatedNew+size), fill=(0, 0, 0), outline="red")
 
     rotated_x, rotated_y = rotate_point(point['x'], point['y'], width, height)
-    print(f"({point['x']}, {point['y']}) \t\t ({rotated_x}, {rotated_y}) ")
+    #print(f"({point['x']}, {point['y']}) \t\t ({rotated_x}, {rotated_y}) ")
 
     rotated_x *= width
     rotated_y *= height
 
-    draw.ellipse((rotated_x-size, rotated_y-size, rotated_x+size, rotated_y+size), fill=(0, 0, 255))
+    #draw.ellipse((rotated_x-size, rotated_y-size, rotated_x+size, rotated_y+size), fill=(0, 0, 255))
     
 image.save("output2.png")
 print("D")
+"""
 
