@@ -70,6 +70,11 @@ for imgGroup in allImagesPathGrouped:
                 continue
             image_height, image_width, _ = image.shape
             annotated_image = image.copy()
+            if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
+                print("THE THING --------------")
+                print(augmentType)
+                print(results.multi_hand_landmarks)
+            """
             for hand_landmarks in results.multi_hand_landmarks:
                 #print('hand_landmarks:', hand_landmarks)
                 if augmentType == "rotatedImg-45" or augmentType == "rotatedImg-90" or augmentType == "flippedImg":
@@ -77,10 +82,10 @@ for imgGroup in allImagesPathGrouped:
                     print("\tChanged------------" + augmentType + "-------")
                     print(file)
                     print(dictLandmark['landmark'])
-                    ct = 0
-                    for point in dictLandmark['landmark']:
-                        hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                        ct+=1
+                    #ct = 0
+                    #for point in dictLandmark['landmark']:
+                    #    hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                    #    ct+=1
                     #print(dictLandmark['landmark'][0])
                     #break
                     #print(hand_landmarks.landmark[0].x)
@@ -110,7 +115,9 @@ for imgGroup in allImagesPathGrouped:
                 #for hand_landmarks in results.multi_hand_landmarks:
                 xTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width)
                 yTxt = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height)
-            
+            """
+            xTxt = 0
+            yTxt = 0
             xTipP, yTipP = changePoint(augmentType, xTxt, yTxt)
             
             tipFingerNumbers.update({augmentType : (xTipP, yTipP)})
