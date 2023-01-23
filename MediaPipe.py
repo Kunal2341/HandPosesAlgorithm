@@ -8,10 +8,6 @@ import math
 import pickle
 from google.protobuf import text_format
 from google.protobuf.json_format import MessageToDict
-#from mediapipe.framework.formats import landmarks_pb2
-
-#mabye changed
-#here is a chnage lets see if the gets uplaods
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -27,8 +23,6 @@ for imgNumber in range(100):
     for augment in sorted(os.listdir("augmentedImgs")):
         eachImgAugments.append("augmentedImgs/" + augment + "/" + sorted(os.listdir("augmentedImgs/" + augment))[imgNumber])
     allImagesPathGrouped.append(eachImgAugments)
-
-#1920, 1080
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 fontScale = 1
@@ -81,14 +75,10 @@ for imgGroup in allImagesPathGrouped:
                     print(file)
                     print(dictLandmark['landmark'])
 
-
-                    #ct = 0
-                    #for point in dictLandmark['landmark']:
-                    #    hand_landmarks.landmark[count].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                    #    ct+=1
-                    #print(dictLandmark['landmark'][0])
-                    #break
-                    #print(hand_landmarks.landmark[0].x)
+                    countLandMark = 0
+                    for point in dictLandmark['landmark']:
+                        hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[count].x = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                        countLandMark+=1
 
                 #print(
                 #    f'Index finger tip coordinates: (',

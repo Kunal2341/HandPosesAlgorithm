@@ -5,19 +5,25 @@ from io import BytesIO
 from pathlib import Path
 from pprint import pprint
 
-def rotate_point(x, y, width, height, amount):
-    radians = math.radians(amount)  # convert degrees to radians
-    new_x = (x - width) * math.cos(radians) - (y - height) * math.sin(radians) + width
-    new_y = (x - width) * math.sin(radians) + (y - height) * math.cos(radians) + height
-    #return new_x * width, new_y * height
+def rotate_point(x, y, width, height, angle):
+    angle = math.radians(angle)
+    new_x = (x - width/2) * math.cos(angle) - (y - height/2) * math.sin(angle) + width/2
+    new_y = (x - width/2) * math.sin(angle) + (y - height/2) * math.cos(angle) + height/2
     return new_x, new_y
 
 def rotate_point_new(x, y, angle):
     angle = math.radians(angle)
-    c, s = math.cos(angle), math.sin(angle)
-    x_rotated = x * c - y * s
-    y_rotated = x * s + y * c
-    return x_rotated, y_rotated
+    new_x = x * math.cos(angle) - y * math.sin(angle)
+    new_y = x * math.sin(angle) + y * math.cos(angle)
+    return new_x, new_y
+def rotate_point_new(x, y, angle, center_x, center_y):
+    angle = math.radians(angle)
+    x_temp = x - center_x
+    y_temp = y - center_y
+    new_x = x_temp * math.cos(angle) - y_temp * math.sin(angle) + center_x
+    new_y = x_temp * math.sin(angle) + y_temp * math.cos(angle) + center_y
+    return new_x, new_y
+
 
 def flip_points_horizontally(points_dict):
     for point in points_dict['landmark']:
@@ -77,19 +83,21 @@ image = Image.open(file)
 draw = ImageDraw.Draw(image)
 print(image)
 size = 5
+center_x, center_y = width/2, height/2
 
 for point in flipped_points['landmark']:
 
     xMain = point['x'] * width
     yMain = point['y'] * height
-    #draw.ellipse((xMain-size, yMain-size, xMain+size, yMain+size), fill=(0, 0, 255))
+    draw.ellipse((xMain-size, yMain-size, xMain+size, yMain+size), fill=(0, 0, 255))
 
-    xRotatedNew, yRotatedNew = rotate_point_new(point['x'] * width, point['y'] * height, -45)
+    xRotatedNew, yRotatedNew = rotate_point_new(xMain, yMain, 45, center_x, center_y)
+
     #print(xRotatedNew, yRotatedNew)
     draw.ellipse((xRotatedNew-size, yRotatedNew-size, xRotatedNew+size, yRotatedNew+size), fill=(0, 0, 0), outline="red")
 
     rotated_x, rotated_y = rotate_point(point['x'], point['y'], width, height,35)
-    print(f"({point['x']}, {point['y']}) \t\t ({rotated_x}, {rotated_y}) ")
+    #print(f"({point['x']}, {point['y']}) \t\t ({rotated_x}, {rotated_y}) ")
 
     rotated_x *= width
     rotated_y *= height

@@ -45,9 +45,12 @@ def changePoint(augmentType, xP, yP, origin=(1920/2, 1080/2), normalized=False):
             return xP, yP
     else:
         if augmentType == "rotatedImg-45":
-            return rotate_point_normlized(xP, yP, 45)
+            xFlippedPoint, yFlippedPoint = flip_points_horizontally(xP, yP)
+            return rotate_point_new(xFlippedPoint, yFlippedPoint, 45, 0.5, 0.5)
         elif augmentType == "rotatedImg-90":
-            return rotate_point_normlized(xP, yP, 90)
+            xFlippedPoint, yFlippedPoint = flip_points_horizontally(xP, yP)
+            return rotate_point_new(xFlippedPoint, yFlippedPoint, 90, 0.5, 0.5)
+            #return rotate_point_normlized(xP, yP, 90)
         elif augmentType == "flippedImg":
             return xP, 1 - yP
 
@@ -67,3 +70,13 @@ def z_score_outliers(data, threshold=3):
     outliers = np.where(z_scores > threshold)
     return outliers
 
+def flip_points_horizontally(x, y):
+    return 1 - x, y
+
+def rotate_point_new(x, y, angle, center_x, center_y):
+    angle = math.radians(angle)
+    x_temp = x - center_x
+    y_temp = y - center_y
+    new_x = x_temp * math.cos(angle) - y_temp * math.sin(angle) + center_x
+    new_y = x_temp * math.sin(angle) + y_temp * math.cos(angle) + center_y
+    return new_x, new_y
