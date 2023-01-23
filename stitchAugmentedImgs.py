@@ -60,6 +60,8 @@ for i in range(len(photosPaths)):
 
 
 
+print(gridImages.size)
+
 # JPG better storage than PNG
 
 gridImages.save("allGridImages" + ",".join(map(str,choosenPhotos)) + ".jpg", quality=25)
