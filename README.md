@@ -19,14 +19,14 @@ Check out image `vis_006` for possible mistakes in google media pipe
 
 Change the image using the following adjustments only with **google media pipe**
 
-- [x] Brigthen the image --> Done
-- [x] Darken --> Done
-- [x] Flipped image --> Done
-- [x] Contrast --> Done
-- [x] Lower resolution 50% --> Done
-- [x] Rotate it 45 --> Done
-- [x] Rotate it 90 --> Done
-- [x] Grayscale --> Done
+- [x] Brighten the image
+- [x] Darken the image
+- [x] Flip the image horizontally
+- [x] Increase/decrease the image contrast
+- [x] Lower the resolution by 50% 
+- [x] Rotate the image by 45 degrees
+- [x] Rotate the image by 90 degrees
+- [x] Convert the image to grayscale
 
 Test out results by draw each image on top of each other 
 
