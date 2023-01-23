@@ -33,7 +33,7 @@ choosenPhotos = ["006", "009", "018", "043", "045"]
 photosPaths = []
 
 folderAugmentedImgs = "augmentedImgsMediaPipe"
-
+makeFolder("GIF-Images")
 for imgNum in choosenPhotos:
     gif_images = []
     for augment in os.listdir(folderAugmentedImgs):
@@ -41,7 +41,7 @@ for imgNum in choosenPhotos:
         photosPaths.append(im)
         gif_images.append(im)
     # Create the GIF
-    gif_images[0].save(imgNum + '.gif', save_all=True, append_images=gif_images[1:])
+    gif_images[0].save("GIF-Images/" + imgNum + '.gif', save_all=True, append_images=gif_images[1:])
 
 
 

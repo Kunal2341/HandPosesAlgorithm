@@ -13,6 +13,15 @@ Below is the grid of images with each on labeled on the following images
 ## Analysis 
 
 
+|Bad Image|Problem|GIF Image|
+|-|-|-|
+|![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|x|x|
+![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|||
+![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|||
+![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|||
+
+
+
 ## Running the code
 Use `conda activate HandPose`
 
