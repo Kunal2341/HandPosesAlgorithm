@@ -35,9 +35,15 @@ photosPaths = []
 folderAugmentedImgs = "augmentedImgsMediaPipe"
 
 for imgNum in choosenPhotos:
+    gif_images = []
     for augment in os.listdir(folderAugmentedImgs):
         im = Image.open(folderAugmentedImgs + "/" + augment + "/" + imgNum + "-" + augment.replace("-mediaPipe","") + ".jpg", 'r')
         photosPaths.append(im)
+        gif_images.append(im)
+    # Create the GIF
+    gif_images[0].save(imgNum + '.gif', save_all=True, append_images=gif_images[1:])
+
+
 
 
 x,y = photosPaths[0].size
