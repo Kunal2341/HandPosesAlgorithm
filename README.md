@@ -15,7 +15,7 @@ Below is the grid of images with each on labeled on the following images
 
 |Bad Image|Problem|GIF Image|Helper Augments|
 |-|-|-|-|
-|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|Middle Finger stuggles with exact tip point due to covered hand|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/006.gif?raw=truef" alt="GIF of 006 image" loop=inf/>||
+|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|Middle Finger stuggles with exact tip point due to covered hand|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/006.gif?raw=truef" alt="GIF of 006 image" loop=inf/>|`darken|
 ![stacked 009 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)||||
 ![stacked 018 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)||||
 ![stacked 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)||||
