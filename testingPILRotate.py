@@ -7,8 +7,8 @@ from pprint import pprint
 
 def rotate_point(x, y, width, height, amount):
     radians = math.radians(amount)  # convert degrees to radians
-    new_x = (x - 0.5) * math.cos(radians) - (y - 0.5) * math.sin(radians) + 0.5
-    new_y = (x - 0.5) * math.sin(radians) + (y - 0.5) * math.cos(radians) + 0.5
+    new_x = (x - width) * math.cos(radians) - (y - height) * math.sin(radians) + width
+    new_y = (x - width) * math.sin(radians) + (y - height) * math.cos(radians) + height
     #return new_x * width, new_y * height
     return new_x, new_y
 
