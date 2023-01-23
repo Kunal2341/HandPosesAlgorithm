@@ -134,7 +134,6 @@ for imgGroup in allImagesPathGrouped:
     cv2.imwrite("allEditsStitched/" + os.path.split(imgGroup[0])[1][0:3] + "-ALL.jpg", imgEditsAll)
     print("The file changed!")
     #pprint(tipFingerNumbers)
-    resultsArray.append(tipFingerNumbers)
     print(f"{count} Different drawings on the image")
     resultsArray.append(pointCollection)
     if l == 5:
