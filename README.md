@@ -1,20 +1,11 @@
 # HandPosesAlgorithm
+# Augmenting images
 
-Running different tests on a sample of a 100 hand images to see which model works the best for our use case.
-
-|Model|Description|Image Example &nbsp &nbsp &nbsp &nbsp &nbsp|
-|-|-|-|
-|Alphapose|Fails to install alphapose due to some issue with required GPU|n/a|
-|Google Media Pipe|Works the best with accuracy and improved speed|![Google Media Pipe Image 9](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/RESULTS-TOTAL/results_allImages_mediapipe/10.png?raw=true)|
-|MMpose|Runs slow (likely due to no GPU) and accuracy struggles especially with hidden hands|![MediaPipe Image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/RESULTS-TOTAL/results_allImages-mmpose/vis_009.jpg?raw=true)|
-
-# Next Steps - augmenting images
-
-**Problem** --> Failing to properly stack the images becuase of the rotation and normalizing of the points in Google Media Pipes Pipeline.
+~~**Problem** --> Failing to properly stack the images becuase of the rotation and normalizing of the points in Google Media Pipes Pipeline.~~
 
 ## Grid of images 
 
-Below is the grid of images with each on labeled on a set of random images
+Below is the grid of images with each on labeled on the following images
 |Grid Images|Stacked Images|
 |-|-|
 |![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/002-ALL.jpg?raw=true)|
@@ -39,6 +30,14 @@ Test out results by draw each image on top of each other
 
 Using the x,y points take the average of the outputs and remove outliers
 
+# Different Model Tests
+Running different tests on a sample of a 100 hand images to see which model works the best for our use case.
+
+|Model|Description|Image Example &nbsp &nbsp &nbsp &nbsp &nbsp|
+|-|-|-|
+|Alphapose|Fails to install alphapose due to some issue with required GPU|n/a|
+|Google Media Pipe|Works the best with accuracy and improved speed|![Google Media Pipe Image 9](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/RESULTS-TOTAL/results_allImages_mediapipe/10.png?raw=true)|
+|MMpose|Runs slow (likely due to no GPU) and accuracy struggles especially with hidden hands|![MediaPipe Image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/RESULTS-TOTAL/results_allImages-mmpose/vis_009.jpg?raw=true)|
 
 
 # Running Google Media Pipe
