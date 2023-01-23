@@ -34,10 +34,10 @@ resultsArray = []
 makeFolder("allEditsStitched")
 l = 0
 for imgGroup in allImagesPathGrouped:
-    count = 1
+    count = 0
     cleanImgPath = os.path.split(imgGroup[0])[1][0:3] + ".jpg"
     imgEditsAll = cv2.flip(cv2.imread("random_images/" + cleanImgPath), 1)
-
+    pointCollection = []
     print("-"*40)
     print("Running " + imgGroup[0])
     tipFingerNumbers = {}
@@ -66,22 +66,14 @@ for imgGroup in allImagesPathGrouped:
                     
                     print("\tChanged------------" + augmentType + "-------")
                     
-                    print(len(dictLandmark['landmark']))
-                    print(len(hand_landmarks.landmark))
-
-
-                    print(dictLandmark['landmark'])
-                    print(hand_landmarks.landmark)
-                    print("-"*20)
-
                     countLandMark = 0
                     for point in dictLandmark['landmark']:
-                        
-                        hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[countLandMark].y = changePoint(augmentType, point['x'], point['y'], normalized=True)
-                        print(hand_landmarks.landmark[countLandMark].x, hand_landmarks.landmark[countLandMark].y)
+                        xChanged, yChanged = changePoint(augmentType, point['x'], point['y'], normalized=True)
+                        hand_landmarks.landmark[countLandMark].x = xChanged/image_width
+                        hand_landmarks.landmark[countLandMark].y = yChanged/image_height
 
                         countLandMark+=1
-                    
+                pointCollection.append([augmentType, MessageToDict(hand_landmarks)])  
                 #print(
                 #    f'Index finger tip coordinates: (',
                 #    f'{hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width}, '
@@ -144,10 +136,9 @@ for imgGroup in allImagesPathGrouped:
     #pprint(tipFingerNumbers)
     resultsArray.append(tipFingerNumbers)
     print(f"{count} Different drawings on the image")
-    
-    if l == 2:
+    resultsArray.append(pointCollection)
+    if l == 5:
         break
     l += 1
-
-with open("tipFingerPoint.pkl", "wb") as f:
-    f.dump(resultsArray)
+with open('data.pickle', 'wb') as f:
+    pickle.dump(resultsArray, f)

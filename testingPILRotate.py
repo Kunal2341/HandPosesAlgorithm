@@ -48,17 +48,18 @@ draw = ImageDraw.Draw(image)
 print(image)
 size = 5
 center_x, center_y = width/2, height/2
-center_x, center_y = 0.5, 0.5
+#center_x, center_y = 0.5, 0.5
 for point in flipped_points['landmark']:
 
-    xMain = point['x']# * width
-    yMain = point['y']# * height
+    xMain = point['x'] * width
+    yMain = point['y'] * height
 
     xRotatedNew, yRotatedNew = rotate_point_new(xMain, yMain, 45, center_x, center_y)
 
+    print(xRotatedNew/width, yRotatedNew/height)
 
-    xRotatedNew*=width
-    yRotatedNew*=height
+    #xRotatedNew*=width
+    #yRotatedNew*=height
 
     draw.ellipse((xRotatedNew-size, yRotatedNew-size, xRotatedNew+size, yRotatedNew+size), fill=(0, 0, 0), outline="red")
 
