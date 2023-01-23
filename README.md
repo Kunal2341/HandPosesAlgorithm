@@ -6,11 +6,12 @@
 ## Grid of images 
 
 Below is the grid of images with each on labeled on the following images
-|Grid Images|Stacked Images for `043`|GIF
+|Grid Images|Stacked Images for `043`|GIF for `043`
 |-|-|-|
-|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages006,009,018,043,045.jpg?raw=true)|<img width=1000/>![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|![GIF of 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=tru&loop=inf&autoPlay=true)|
+|![Grid of augmented images](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allGridImages006,009,018,043,045.jpg?raw=true)|![stackedImages Example](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/043.gif?raw=truef" alt="GIF of 043 image" loop=inf/>|
 
 ## Analysis 
+
 
 ## Running the code
 Use `conda activate HandPose`
