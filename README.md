@@ -1,9 +1,12 @@
 # HandPosesAlgorithm
+
+Worked on testing different Hand Pose algorthims (*Google MediaPipe*, *MMPose*, *AlphaPose*) to determine which would be the best for 
+
 # Augmenting images
+
 
 ~~**Problem** --> Failing to properly stack the images becuase of the rotation and normalizing of the points in Google Media Pipes Pipeline.~~
 
-x
 
 ## Grid of images 
 
