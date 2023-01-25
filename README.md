@@ -1,12 +1,10 @@
 # HandPosesAlgorithm
 
-Worked on testing different Hand Pose algorthims (*Google MediaPipe*, *MMPose*, *AlphaPose*) to determine which would be the best for 
+Worked on testing different Hand Pose algorthims (*Google MediaPipe*, *MMPose*, *AlphaPose*) to determine which would be the best for pressure vision tests. Continued the analysis with running tests on different augments of images.
 
 # Augmenting images
 
-
 ~~**Problem** --> Failing to properly stack the images becuase of the rotation and normalizing of the points in Google Media Pipes Pipeline.~~
-
 
 ## Grid of images 
 
