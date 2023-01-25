@@ -16,9 +16,9 @@ Below is the grid of images with each on labeled on the following images
 
 **Overall `darken 50%` & `resolution 50%` & `brighten 50%` all have significant helps to the accuracy of the mediapipes**
 
-|Bad Image|Problem|GIF Image|Helper Augments|
-|-|-|-|-|
-|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|Thumb prediction because of hidden also (*Middle Finger stuggles with exact tip point due to covered hand*)|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/GIF-Images/006.gif?raw=true" alt="GIF of 006 image" loop=inf/>|`darken 75%` & `grayscale`|
+|Bad Image|Problem|GIF Image|Helper Augments|Good Image|
+|-|-|-|-|-|
+|![stacked 006 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/006-ALL.jpg?raw=true)|Thumb prediction because of hidden also (*Middle Finger stuggles with exact tip point due to covered hand*)|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/GIF-Images/006.gif?raw=true" alt="GIF of 006 image" loop=inf/>|`darken 75%` & `grayscale`|![Good image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/augmentedImgsMediaPipe/darkenImg-0.75-mediaPipe/006-darkenImg-0.75.jpg?raw=true)|
 ![stacked 009 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/009-ALL.jpg?raw=true)|Middle, Ring, and Pinky finger points prediction due to covered view|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/GIF-Images/006.gif?raw=true" alt="GIF of 009 image" loop=inf/>|`resolution 50%`|
 ![stacked 018 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/018-ALL.jpg?raw=true)|Main pointer fail to reach correct tip|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/GIF-Images/018.gif?raw=true" alt="GIF of 018 image" loop=inf/>|`darken 50%` & `grayscale` & `brighten 75%`|
 ![stacked 043 image](https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/allEditsStitched/043-ALL.jpg?raw=true)|Nothing too bad good average on detected images|<img src="https://github.com/Kunal2341/HandPosesAlgorithm/blob/master/GIF-Images/043.gif?raw=true" alt="GIF of 043 image" loop=inf/>|n/a|
